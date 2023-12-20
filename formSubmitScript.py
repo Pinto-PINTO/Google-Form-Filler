@@ -5,16 +5,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-
+# Doesnt open the Window at each execution
 chrome_options = Options()
-chrome_options.add_argument("--headless")  # This line ensures the browser runs in headless mode
+chrome_options.add_argument("--headless")  
 
-# Initialize the WebDriver with the defined options
 driver = webdriver.Chrome(options=chrome_options)
 
+# Use only this if you want to see the Window (Comment Line 9,10,12)
 #driver = webdriver.Chrome()
 
-# Open the webpage containing the checkboxes
+# Form Link
 driver.get('https://forms.gle/a8zHA9tBaXgPkofEA')
 
 
@@ -25,7 +25,7 @@ try:
     iframe1 = driver.find_element_by_tag_name('iframe')
     driver.switch_to.frame(iframe1)
 except:
-    pass  # If there is no iframe, continue without switching
+    pass  
 
 # Find and click the "No" radio button
 radio_button_xpath = '//span[contains(text(), "No")]'
@@ -45,7 +45,7 @@ try:
     iframe2 = driver.find_element_by_tag_name('iframe')
     driver.switch_to.frame(iframe2)
 except:
-    pass  # If there is no iframe, continue without switching
+    pass  
 
 # Find and click the "The product ratings are inaccurate" checkbox
 checkbox_xpath = '//span[contains(text(), "The product ratings are inaccurate.")]'
@@ -64,7 +64,7 @@ try:
     iframe3 = driver.find_element_by_tag_name('iframe')
     driver.switch_to.frame(iframe3)
 except:
-    pass  # If there is no iframe, continue without switching
+    pass  
 
 # Find and click the "Often" radio button
 radio_button_xpath = '//span[contains(text(), "Often")]'
@@ -83,7 +83,7 @@ try:
     iframe4 = driver.find_element_by_tag_name('iframe')
     driver.switch_to.frame(iframe4)
 except:
-    pass  # If there is no iframe, continue without switching
+    pass  
 
 # Find and click the "Read customer reviews" checkbox
 checkbox_xpath = '//span[contains(text(), "Read customer reviews")]'
@@ -102,7 +102,7 @@ try:
     iframe6 = driver.find_element_by_tag_name('iframe')
     driver.switch_to.frame(iframe6)
 except:
-    pass  # If there is no iframe, continue without switching
+    pass  
 
 # Find and click the "4" radio button
 radio_button_xpath = '//span[contains(text(), "To what extent do you consider customer reviews")]/following::div[text()="4"]'
@@ -121,7 +121,7 @@ try:
     iframe6 = driver.find_element_by_tag_name('iframe')
     driver.switch_to.frame(iframe6)
 except:
-    pass  # If there is no iframe, continue without switching
+    pass  
 
 # Find and click the "4" radio button
 radio_button_xpath = '//span[contains(text(), "To what extent will an accurate rating for a smartphone")]/following::div[text()="5"]'
@@ -158,7 +158,7 @@ radio_button.click()
 # --------------------------------------------------------------------
 # ----------------------------- Select 8 -----------------------------
 # --------------------------------------------------------------------
-input_field = driver.find_element(By.CLASS_NAME, 'whsOnd.zHQkBf')  # Adjust the class name accordingly
+input_field = driver.find_element(By.CLASS_NAME, 'whsOnd.zHQkBf')  
 input_field.send_keys("Ebay")
 # --------------------------------------------------------------------
 # ----------------------------- Select 8 -----------------------------
@@ -181,8 +181,5 @@ submit_button = WebDriverWait(driver, 1).until(
 )
 submit_button.click()
 
-# Optional: Wait for a brief moment to observe the selection (You might not need this in actual use)
-# time.sleep(2)
 
-# Close the browser window
 driver.quit()
